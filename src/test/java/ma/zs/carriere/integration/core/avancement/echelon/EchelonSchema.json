@@ -1,0 +1,15 @@
+{
+    "ref": "#string",
+    "libelle": "#string",
+    "salaire": "#number",
+    "echelle": {"id": "#number"}
+
+}
+
+
+
+
+
+
+
+

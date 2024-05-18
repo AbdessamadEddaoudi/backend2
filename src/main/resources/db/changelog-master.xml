@@ -1,0 +1,20 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+            <include file="classpath:db/migration/changelog/Mandat,employe/Mandat.xml"/>
+        <include file="classpath:db/migration/changelog/commun/Diplome.xml"/>
+        <include file="classpath:db/migration/changelog/demande/EtatDemandeDocument.xml"/>
+        <include file="classpath:db/migration/changelog/demande/TemplateDocument.xml"/>
+        <include file="classpath:db/migration/changelog/demande/DemandeDocument.xml"/>
+        <include file="classpath:db/migration/changelog/demande/TypeDocument.xml"/>
+        <include file="classpath:db/migration/changelog/Mandat/ResponsabiliteDetail.xml"/>
+        <include file="classpath:db/migration/changelog/Mandat/Responsabilite.xml"/>
+        <include file="classpath:db/migration/changelog/commun/Employe.xml"/>
+        <include file="classpath:db/migration/changelog/avancement/Echelon.xml"/>
+        <include file="classpath:db/migration/changelog/avancement/Avancement.xml"/>
+        <include file="classpath:db/migration/changelog/commun/EntiteAdmin.xml"/>
+        <include file="classpath:db/migration/changelog/avancement/Echelle.xml"/>
+
+</databaseChangeLog>

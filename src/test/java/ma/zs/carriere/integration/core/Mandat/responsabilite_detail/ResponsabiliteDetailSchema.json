@@ -1,0 +1,14 @@
+{
+    "ref": "#string",
+    "salaire": "#number",
+    "responsabilite": {"id": "#number"}
+
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+{
+    "ref": "#string",
+    "employe": {"id": "#number"},
+    "typeDocument": {"id": "#number"}
+
+}
+
+
+
+
+
+
+
+

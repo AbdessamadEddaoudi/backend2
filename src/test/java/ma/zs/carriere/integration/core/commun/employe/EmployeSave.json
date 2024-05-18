@@ -1,0 +1,21 @@
+{
+    "salaire": "10",
+    "diplome": {"id": "1"},
+    "entiteAdmin": {"id": "1"},
+    "credentialsNonExpired": "true",
+    "enabled": "true",
+    "accountNonExpired": "true",
+    "accountNonLocked": "true",
+    "passwordChanged": "true",
+    "username": "username-1",
+    "password": "password-1"
+
+}
+
+
+
+
+
+
+
+

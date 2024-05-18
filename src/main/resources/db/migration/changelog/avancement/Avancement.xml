@@ -1,0 +1,73 @@
+<!-- db/changelog-1.1-container.xml -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <!-- Create Container Table -->
+    <changeSet id="1" author="your-name">
+    <createTable tableName="avancement">
+      <column name="id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+        <column name="ref" type="VARCHAR(500)"/>
+        <column name="salaire_ajoute" type="NUMERIC"/>
+
+        <column name="employe_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="echelle_ancien_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="echelle_nouveau_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+
+    </createTable>
+  </changeSet>
+
+    <!-- Add foreign key constraint -->
+  <changeSet id="2" author="your-name">
+      <addForeignKeyConstraint
+              baseTableName="avancement"
+              baseColumnNames="employe_id"
+              referencedTableName="employe"
+              referencedColumnNames="id"
+              constraintName="fk_avancement_employe"/>
+      <addForeignKeyConstraint
+              baseTableName="avancement"
+              baseColumnNames="echelle_ancien_id"
+              referencedTableName="echelle_ancien"
+              referencedColumnNames="id"
+              constraintName="fk_avancement_echelle_ancien"/>
+      <addForeignKeyConstraint
+              baseTableName="avancement"
+              baseColumnNames="echelle_nouveau_id"
+              referencedTableName="echelle_nouveau"
+              referencedColumnNames="id"
+              constraintName="fk_avancement_echelle_nouveau"/>
+
+  </changeSet>
+
+    <!-- Create Sequence for ContainerType -->
+  <changeSet id="3" author="your-name">
+    <createSequence sequenceName="avancement_seq" startValue="1" incrementBy="1"/>
+  </changeSet>
+
+  <!-- Load Data from CSV -->
+  <changeSet id="4" author="your-name">
+    <loadData
+            file="classpath:/db/migration/data/avancement/Avancement.csv"
+            tableName="avancement">
+      <column name="id" type="NUMERIC"/>
+          <column name="ref" type="STRING"/>
+          <column name="salaire_ajoute" type="NUMERIC"/>
+        <column name="employe" type="BIGINT"/>
+        <column name="echelle_ancien" type="BIGINT"/>
+        <column name="echelle_nouveau" type="BIGINT"/>
+    </loadData>
+  </changeSet>
+
+
+</databaseChangeLog>

@@ -1,0 +1,49 @@
+{
+    "ref": "ref-1",
+    "departement": "departement-1",
+    "chefDepart": {"id": "1"},
+
+    "employes": [
+        {
+            "salaire":"10",
+            "diplome":{"id": "1"},
+            "credentialsNonExpired":"false",
+            "enabled":"false",
+            "accountNonExpired":"false",
+            "accountNonLocked":"false",
+            "passwordChanged":"false",
+            "username":"username-1",
+            "password":"password-1"
+        },
+        {
+            "salaire":"20",
+            "diplome":{"id": "2"},
+            "credentialsNonExpired":"true",
+            "enabled":"true",
+            "accountNonExpired":"true",
+            "accountNonLocked":"true",
+            "passwordChanged":"true",
+            "username":"username-2",
+            "password":"password-2"
+        },
+        {
+            "salaire":"30",
+            "diplome":{"id": "3"},
+            "credentialsNonExpired":"false",
+            "enabled":"false",
+            "accountNonExpired":"false",
+            "accountNonLocked":"false",
+            "passwordChanged":"false",
+            "username":"username-3",
+            "password":"password-3"
+        }
+    ]
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,1042 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /mandats:
+    get:
+      summary: List all mandats
+      operationId: listMandats
+      tags:
+        - mandats
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of mandats
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Mandats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a mandat
+      operationId: createMandats
+      tags:
+        - mandats
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /mandats/{mandatId}:
+    get:
+      summary: Info for a specific mandat
+      operationId: showMandatById
+      tags:
+        - mandats
+      parameters:
+        - name: mandatId
+          in: path
+          required: true
+          description: The id of the mandat to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Mandats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /diplomes:
+    get:
+      summary: List all diplomes
+      operationId: listDiplomes
+      tags:
+        - diplomes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of diplomes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Diplomes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a diplome
+      operationId: createDiplomes
+      tags:
+        - diplomes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /diplomes/{diplomeId}:
+    get:
+      summary: Info for a specific diplome
+      operationId: showDiplomeById
+      tags:
+        - diplomes
+      parameters:
+        - name: diplomeId
+          in: path
+          required: true
+          description: The id of the diplome to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Diplomes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatDemandeDocuments:
+    get:
+      summary: List all etatDemandeDocuments
+      operationId: listEtatDemandeDocuments
+      tags:
+        - etatDemandeDocuments
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of etatDemandeDocuments
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EtatDemandeDocuments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a etatDemandeDocument
+      operationId: createEtatDemandeDocuments
+      tags:
+        - etatDemandeDocuments
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatDemandeDocuments/{etatDemandeDocumentId}:
+    get:
+      summary: Info for a specific etatDemandeDocument
+      operationId: showEtatDemandeDocumentById
+      tags:
+        - etatDemandeDocuments
+      parameters:
+        - name: etatDemandeDocumentId
+          in: path
+          required: true
+          description: The id of the etatDemandeDocument to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EtatDemandeDocuments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /templateDocuments:
+    get:
+      summary: List all templateDocuments
+      operationId: listTemplateDocuments
+      tags:
+        - templateDocuments
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of templateDocuments
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/TemplateDocuments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a templateDocument
+      operationId: createTemplateDocuments
+      tags:
+        - templateDocuments
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /templateDocuments/{templateDocumentId}:
+    get:
+      summary: Info for a specific templateDocument
+      operationId: showTemplateDocumentById
+      tags:
+        - templateDocuments
+      parameters:
+        - name: templateDocumentId
+          in: path
+          required: true
+          description: The id of the templateDocument to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/TemplateDocuments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /demandeDocuments:
+    get:
+      summary: List all demandeDocuments
+      operationId: listDemandeDocuments
+      tags:
+        - demandeDocuments
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of demandeDocuments
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/DemandeDocuments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a demandeDocument
+      operationId: createDemandeDocuments
+      tags:
+        - demandeDocuments
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /demandeDocuments/{demandeDocumentId}:
+    get:
+      summary: Info for a specific demandeDocument
+      operationId: showDemandeDocumentById
+      tags:
+        - demandeDocuments
+      parameters:
+        - name: demandeDocumentId
+          in: path
+          required: true
+          description: The id of the demandeDocument to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/DemandeDocuments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /typeDocuments:
+    get:
+      summary: List all typeDocuments
+      operationId: listTypeDocuments
+      tags:
+        - typeDocuments
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of typeDocuments
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/TypeDocuments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a typeDocument
+      operationId: createTypeDocuments
+      tags:
+        - typeDocuments
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /typeDocuments/{typeDocumentId}:
+    get:
+      summary: Info for a specific typeDocument
+      operationId: showTypeDocumentById
+      tags:
+        - typeDocuments
+      parameters:
+        - name: typeDocumentId
+          in: path
+          required: true
+          description: The id of the typeDocument to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/TypeDocuments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /responsabiliteDetails:
+    get:
+      summary: List all responsabiliteDetails
+      operationId: listResponsabiliteDetails
+      tags:
+        - responsabiliteDetails
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of responsabiliteDetails
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ResponsabiliteDetails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a responsabiliteDetail
+      operationId: createResponsabiliteDetails
+      tags:
+        - responsabiliteDetails
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /responsabiliteDetails/{responsabiliteDetailId}:
+    get:
+      summary: Info for a specific responsabiliteDetail
+      operationId: showResponsabiliteDetailById
+      tags:
+        - responsabiliteDetails
+      parameters:
+        - name: responsabiliteDetailId
+          in: path
+          required: true
+          description: The id of the responsabiliteDetail to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ResponsabiliteDetails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /responsabilites:
+    get:
+      summary: List all responsabilites
+      operationId: listResponsabilites
+      tags:
+        - responsabilites
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of responsabilites
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Responsabilites'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a responsabilite
+      operationId: createResponsabilites
+      tags:
+        - responsabilites
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /responsabilites/{responsabiliteId}:
+    get:
+      summary: Info for a specific responsabilite
+      operationId: showResponsabiliteById
+      tags:
+        - responsabilites
+      parameters:
+        - name: responsabiliteId
+          in: path
+          required: true
+          description: The id of the responsabilite to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Responsabilites'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /employes:
+    get:
+      summary: List all employes
+      operationId: listEmployes
+      tags:
+        - employes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of employes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Employes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a employe
+      operationId: createEmployes
+      tags:
+        - employes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /employes/{employeId}:
+    get:
+      summary: Info for a specific employe
+      operationId: showEmployeById
+      tags:
+        - employes
+      parameters:
+        - name: employeId
+          in: path
+          required: true
+          description: The id of the employe to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Employes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /echelons:
+    get:
+      summary: List all echelons
+      operationId: listEchelons
+      tags:
+        - echelons
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of echelons
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Echelons'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a echelon
+      operationId: createEchelons
+      tags:
+        - echelons
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /echelons/{echelonId}:
+    get:
+      summary: Info for a specific echelon
+      operationId: showEchelonById
+      tags:
+        - echelons
+      parameters:
+        - name: echelonId
+          in: path
+          required: true
+          description: The id of the echelon to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Echelons'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /avancements:
+    get:
+      summary: List all avancements
+      operationId: listAvancements
+      tags:
+        - avancements
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of avancements
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Avancements'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a avancement
+      operationId: createAvancements
+      tags:
+        - avancements
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /avancements/{avancementId}:
+    get:
+      summary: Info for a specific avancement
+      operationId: showAvancementById
+      tags:
+        - avancements
+      parameters:
+        - name: avancementId
+          in: path
+          required: true
+          description: The id of the avancement to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Avancements'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /entiteAdmins:
+    get:
+      summary: List all entiteAdmins
+      operationId: listEntiteAdmins
+      tags:
+        - entiteAdmins
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of entiteAdmins
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EntiteAdmins'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a entiteAdmin
+      operationId: createEntiteAdmins
+      tags:
+        - entiteAdmins
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /entiteAdmins/{entiteAdminId}:
+    get:
+      summary: Info for a specific entiteAdmin
+      operationId: showEntiteAdminById
+      tags:
+        - entiteAdmins
+      parameters:
+        - name: entiteAdminId
+          in: path
+          required: true
+          description: The id of the entiteAdmin to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EntiteAdmins'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /echelles:
+    get:
+      summary: List all echelles
+      operationId: listEchelles
+      tags:
+        - echelles
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of echelles
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Echelles'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a echelle
+      operationId: createEchelles
+      tags:
+        - echelles
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /echelles/{echelleId}:
+    get:
+      summary: Info for a specific echelle
+      operationId: showEchelleById
+      tags:
+        - echelles
+      parameters:
+        - name: echelleId
+          in: path
+          required: true
+          description: The id of the echelle to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Echelles'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  
+
+
+definitions:
+  Mandat:
+    type: "object"
+    required:
+      - id
+      - ref
+      - dateDebut
+      - dateFin
+      - salaire
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      dateDebut:
+        type: date
+      dateFin:
+        type: date
+      salaire:
+        type: number
+  Mandats:
+    type: array
+    items:
+      $ref: '#/definitions/Mandat'
+  Diplome:
+    type: "object"
+    required:
+      - id
+      - ref
+      - libelle
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      libelle:
+        type: string
+  Diplomes:
+    type: array
+    items:
+      $ref: '#/definitions/Diplome'
+  EtatDemandeDocument:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  EtatDemandeDocuments:
+    type: array
+    items:
+      $ref: '#/definitions/EtatDemandeDocument'
+  TemplateDocument:
+    type: "object"
+    required:
+      - id
+      - ref
+      - contenu
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      contenu:
+        type: string
+  TemplateDocuments:
+    type: array
+    items:
+      $ref: '#/definitions/TemplateDocument'
+  DemandeDocument:
+    type: "object"
+    required:
+      - id
+      - ref
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+  DemandeDocuments:
+    type: array
+    items:
+      $ref: '#/definitions/DemandeDocument'
+  TypeDocument:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  TypeDocuments:
+    type: array
+    items:
+      $ref: '#/definitions/TypeDocument'
+  ResponsabiliteDetail:
+    type: "object"
+    required:
+      - id
+      - ref
+      - dateApplicationMin
+      - dateApplicationMax
+      - salaire
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      dateApplicationMin:
+        type: date
+      dateApplicationMax:
+        type: date
+      salaire:
+        type: number
+  ResponsabiliteDetails:
+    type: array
+    items:
+      $ref: '#/definitions/ResponsabiliteDetail'
+  Responsabilite:
+    type: "object"
+    required:
+      - id
+      - ref
+      - nom
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      nom:
+        type: string
+  Responsabilites:
+    type: array
+    items:
+      $ref: '#/definitions/Responsabilite'
+  Employe:
+    type: "object"
+    required:
+      - id
+      - salaire
+      - credentialsNonExpired
+      - enabled
+      - accountNonExpired
+      - accountNonLocked
+      - passwordChanged
+      - username
+      - password
+    properties:
+      id:
+        type: int
+      salaire:
+        type: number
+      credentialsNonExpired:
+        type: boolean
+      enabled:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      passwordChanged:
+        type: boolean
+      username:
+        type: string
+      password:
+        type: string
+  Employes:
+    type: array
+    items:
+      $ref: '#/definitions/Employe'
+  Echelon:
+    type: "object"
+    required:
+      - id
+      - ref
+      - libelle
+      - salaire
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      libelle:
+        type: string
+      salaire:
+        type: number
+  Echelons:
+    type: array
+    items:
+      $ref: '#/definitions/Echelon'
+  Avancement:
+    type: "object"
+    required:
+      - id
+      - ref
+      - salaireAjoute
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      salaireAjoute:
+        type: number
+  Avancements:
+    type: array
+    items:
+      $ref: '#/definitions/Avancement'
+  EntiteAdmin:
+    type: "object"
+    required:
+      - id
+      - ref
+      - departement
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      departement:
+        type: string
+  EntiteAdmins:
+    type: array
+    items:
+      $ref: '#/definitions/EntiteAdmin'
+  Echelle:
+    type: "object"
+    required:
+      - id
+      - ref
+      - libelle
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      libelle:
+        type: string
+  Echelles:
+    type: array
+    items:
+      $ref: '#/definitions/Echelle'
+
+  Error:
+    type: "object"
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

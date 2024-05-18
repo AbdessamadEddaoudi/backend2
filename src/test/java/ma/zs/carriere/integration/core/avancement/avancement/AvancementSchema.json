@@ -1,0 +1,16 @@
+{
+    "ref": "#string",
+    "employe": {"id": "#number"},
+    "echelleAncien": {"id": "#number"},
+    "echelleNouveau": {"id": "#number"},
+    "salaireAjoute": "#number"
+
+}
+
+
+
+
+
+
+
+
