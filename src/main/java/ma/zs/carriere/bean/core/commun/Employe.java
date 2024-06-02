@@ -18,11 +18,10 @@ public class Employe  extends User    {
         super(username);
     }
 
+    @Column(length = 500)
+    private String ref;
 
     private BigDecimal salaire = BigDecimal.ZERO;
-
-
-
     private Diplome diplome ;
     private EntiteAdmin entiteAdmin ;
 
@@ -67,6 +66,12 @@ public class Employe  extends User    {
         this.entiteAdmin = entiteAdmin;
     }
 
+    public String getRef() {
+        return ref;
+    }
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
 
     @Override
     public boolean equals(Object o) {

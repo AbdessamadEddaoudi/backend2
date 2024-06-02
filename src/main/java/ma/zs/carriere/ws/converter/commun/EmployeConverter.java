@@ -42,6 +42,10 @@ public class EmployeConverter {
         Employe item = new Employe();
             if(StringUtil.isNotEmpty(dto.getId()))
                 item.setId(dto.getId());
+
+            if(StringUtil.isNotEmpty(dto.getRef()))
+                item.setRef(dto.getRef());
+
             if(StringUtil.isNotEmpty(dto.getSalaire()))
                 item.setSalaire(dto.getSalaire());
             item.setCredentialsNonExpired(dto.getCredentialsNonExpired());
@@ -78,6 +82,10 @@ public class EmployeConverter {
             EmployeDto dto = new EmployeDto();
             if(StringUtil.isNotEmpty(item.getId()))
                 dto.setId(item.getId());
+
+            if(StringUtil.isNotEmpty(item.getRef()))
+                dto.setRef(item.getRef());
+
             if(StringUtil.isNotEmpty(item.getSalaire()))
                 dto.setSalaire(item.getSalaire());
             if(StringUtil.isNotEmpty(item.getCredentialsNonExpired()))

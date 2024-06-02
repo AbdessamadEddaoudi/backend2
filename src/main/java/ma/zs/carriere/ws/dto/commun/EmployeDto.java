@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmployeDto  extends AuditBaseDto {
 
+    private String ref;
     private BigDecimal salaire  ;
     private Boolean credentialsNonExpired  ;
     private Boolean enabled  ;
@@ -49,6 +50,13 @@ public class EmployeDto  extends AuditBaseDto {
     }
     public void setCredentialsNonExpired(Boolean credentialsNonExpired){
         this.credentialsNonExpired = credentialsNonExpired;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 
     @Log
