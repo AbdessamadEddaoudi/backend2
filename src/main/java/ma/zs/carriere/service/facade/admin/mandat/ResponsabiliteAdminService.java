@@ -10,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 public interface ResponsabiliteAdminService {
 
 
+    long getTotalResponsabilites();
+
 
     List<Responsabilite> findByEchelonMinId(Long id);
     int deleteByEchelonMinId(Long id);

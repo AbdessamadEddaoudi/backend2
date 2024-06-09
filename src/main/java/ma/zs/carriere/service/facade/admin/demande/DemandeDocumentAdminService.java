@@ -11,6 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 public interface DemandeDocumentAdminService {
 
 
+    long getTotalDemandes();
+
 
     List<DemandeDocument> findByEmployeId(Long id);
     int deleteByEmployeId(Long id);

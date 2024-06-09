@@ -25,7 +25,10 @@ import java.util.List;
 public class ResponsabiliteRestAdmin {
 
 
-
+    @GetMapping("/total")
+    public long getTotalResponsabilites() {
+        return service.getTotalResponsabilites();
+    }
 
     @Operation(summary = "Finds a list of all responsabilites")
     @GetMapping("")

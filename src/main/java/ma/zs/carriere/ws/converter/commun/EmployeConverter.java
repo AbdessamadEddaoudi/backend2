@@ -46,13 +46,24 @@ public class EmployeConverter {
             if(StringUtil.isNotEmpty(dto.getRef()))
                 item.setRef(dto.getRef());
 
+            if(StringUtil.isNotEmpty(dto.getLastName()))
+                item.setLastName(dto.getLastName());
+
             if(StringUtil.isNotEmpty(dto.getSalaire()))
                 item.setSalaire(dto.getSalaire());
-            item.setCredentialsNonExpired(dto.getCredentialsNonExpired());
-            item.setEnabled(dto.getEnabled());
-            item.setAccountNonExpired(dto.getAccountNonExpired());
-            item.setAccountNonLocked(dto.getAccountNonLocked());
-            item.setPasswordChanged(dto.getPasswordChanged());
+
+//            item.setCredentialsNonExpired(dto.getCredentialsNonExpired());
+//            item.setEnabled(dto.getEnabled());
+//            item.setAccountNonExpired(dto.getAccountNonExpired());
+//            item.setAccountNonLocked(dto.getAccountNonLocked());
+//            item.setPasswordChanged(dto.getPasswordChanged());
+
+            item.setCredentialsNonExpired(dto.getCredentialsNonExpired() != null ? dto.getCredentialsNonExpired() : false);
+            item.setEnabled(dto.getEnabled() != null ? dto.getEnabled() : false);
+            item.setAccountNonExpired(dto.getAccountNonExpired() != null ? dto.getAccountNonExpired() : false);
+            item.setAccountNonLocked(dto.getAccountNonLocked() != null ? dto.getAccountNonLocked() : false);
+            item.setPasswordChanged(dto.getPasswordChanged() != null ? dto.getPasswordChanged() : false);
+
             if(StringUtil.isNotEmpty(dto.getUsername()))
                 item.setUsername(dto.getUsername());
             if(StringUtil.isNotEmpty(dto.getPassword()))
@@ -86,18 +97,29 @@ public class EmployeConverter {
             if(StringUtil.isNotEmpty(item.getRef()))
                 dto.setRef(item.getRef());
 
+            if(StringUtil.isNotEmpty(item.getLastName()))
+                dto.setLastName(item.getLastName());
+
             if(StringUtil.isNotEmpty(item.getSalaire()))
                 dto.setSalaire(item.getSalaire());
-            if(StringUtil.isNotEmpty(item.getCredentialsNonExpired()))
-                dto.setCredentialsNonExpired(item.getCredentialsNonExpired());
-            if(StringUtil.isNotEmpty(item.getEnabled()))
-                dto.setEnabled(item.getEnabled());
-            if(StringUtil.isNotEmpty(item.getAccountNonExpired()))
-                dto.setAccountNonExpired(item.getAccountNonExpired());
-            if(StringUtil.isNotEmpty(item.getAccountNonLocked()))
-                dto.setAccountNonLocked(item.getAccountNonLocked());
-            if(StringUtil.isNotEmpty(item.getPasswordChanged()))
-                dto.setPasswordChanged(item.getPasswordChanged());
+
+//            if(StringUtil.isNotEmpty(item.getCredentialsNonExpired()))
+//                dto.setCredentialsNonExpired(item.getCredentialsNonExpired());
+//            if(StringUtil.isNotEmpty(item.getEnabled()))
+//                dto.setEnabled(item.getEnabled());
+//            if(StringUtil.isNotEmpty(item.getAccountNonExpired()))
+//                dto.setAccountNonExpired(item.getAccountNonExpired());
+//            if(StringUtil.isNotEmpty(item.getAccountNonLocked()))
+//                dto.setAccountNonLocked(item.getAccountNonLocked());
+//            if(StringUtil.isNotEmpty(item.getPasswordChanged()))
+//                dto.setPasswordChanged(item.getPasswordChanged());
+
+            dto.setCredentialsNonExpired(item.getCredentialsNonExpired());
+            dto.setEnabled(item.getEnabled());
+            dto.setAccountNonExpired(item.getAccountNonExpired());
+            dto.setAccountNonLocked(item.getAccountNonLocked());
+            dto.setPasswordChanged(item.getPasswordChanged());
+
             if(StringUtil.isNotEmpty(item.getUsername()))
                 dto.setUsername(item.getUsername());
             if(this.diplome && item.getDiplome()!=null) {
@@ -124,7 +146,7 @@ public class EmployeConverter {
         this.diplome = value;
         this.entiteAdmin = value;
     }
-	
+
     public List<Employe> toItem(List<EmployeDto> dtos) {
         List<Employe> items = new ArrayList<>();
         if (dtos != null && !dtos.isEmpty()) {

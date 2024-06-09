@@ -1,6 +1,7 @@
 package ma.zs.carriere.service.impl.admin.commun;
 
 
+import ma.zs.carriere.dao.facade.core.commun.EmployeDao;
 import ma.zs.carriere.zynerator.exception.EntityNotFoundException;
 import ma.zs.carriere.bean.core.commun.EntiteAdmin;
 import ma.zs.carriere.dao.criteria.core.commun.EntiteAdminCriteria;
@@ -31,6 +32,21 @@ import java.util.List;
 @Service
 public class EntiteAdminAdminServiceImpl implements EntiteAdminAdminService {
 
+    @Override
+    public void addEmployeToEntiteAdmin(Long entiteAdminId, Employe employe) {
+        EntiteAdmin entiteAdmin = dao.findById(entiteAdminId).orElse(null);
+        if (entiteAdmin != null) {
+            entiteAdmin.getEmployes().add(employe);
+            employe.setEntiteAdmin(entiteAdmin);
+            dao.save(entiteAdmin);
+            employeDao.save(employe);
+        }
+    }
+
+    @Override
+    public long getTotalEntites() {
+        return dao.count();
+    }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
     public EntiteAdmin update(EntiteAdmin t) {
@@ -291,6 +307,7 @@ public class EntiteAdminAdminServiceImpl implements EntiteAdminAdminService {
     private EmployeAdminService employeService ;
 
     private @Autowired EntiteAdminDao dao;
+    private @Autowired EmployeDao employeDao;
 
 
 }

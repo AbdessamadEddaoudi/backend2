@@ -38,8 +38,10 @@ import ma.zs.carriere.zynerator.dto.FileTempDto;
 @RequestMapping("/api/admin/entiteAdmin/")
 public class EntiteAdminRestAdmin {
 
-
-
+    @GetMapping("/total")
+    public long getTotalEntites() {
+        return service.getTotalEntites();
+    }
 
     @Operation(summary = "Finds a list of all entiteAdmins")
     @GetMapping("")

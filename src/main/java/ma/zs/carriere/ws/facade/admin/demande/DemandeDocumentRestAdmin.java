@@ -38,8 +38,10 @@ import ma.zs.carriere.zynerator.dto.FileTempDto;
 @RequestMapping("/api/admin/demandeDocument/")
 public class DemandeDocumentRestAdmin {
 
-
-
+    @GetMapping("/total")
+    public long getTotalDemandes() {
+        return service.getTotalDemandes();
+    }
 
     @Operation(summary = "Finds a list of all demandeDocuments")
     @GetMapping("")

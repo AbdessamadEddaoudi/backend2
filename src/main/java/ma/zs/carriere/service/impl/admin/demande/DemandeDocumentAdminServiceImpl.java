@@ -34,6 +34,11 @@ import java.util.List;
 public class DemandeDocumentAdminServiceImpl implements DemandeDocumentAdminService {
 
 
+    @Override
+    public long getTotalDemandes() {
+        return dao.count();
+    }
+
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
     public DemandeDocument update(DemandeDocument t) {
         DemandeDocument loadedItem = dao.findById(t.getId()).orElse(null);

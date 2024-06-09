@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import ma.zs.carriere.bean.core.commun.EntiteAdmin;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,8 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import ma.zs.carriere.zynerator.process.Result;
 
@@ -39,7 +42,15 @@ import ma.zs.carriere.zynerator.dto.FileTempDto;
 @RequestMapping("/api/admin/employe/")
 public class EmployeRestAdmin {
 
+    @GetMapping("/by-entite-admin")
+    public Map<EntiteAdmin, List<Employe>> getEmployesByEntiteAdmin() {
+        return service.getEmployesByEntiteAdmin();
+    }
 
+    @GetMapping("/total")
+    public long getTotalEmployes() {
+        return service.getTotalEmployes();
+    }
 
 
     @Operation(summary = "Finds a list of all employes")

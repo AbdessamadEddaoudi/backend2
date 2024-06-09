@@ -10,8 +10,9 @@ import ma.zs.carriere.service.facade.admin.commun.EmployeAdminService;
 import ma.zs.carriere.zynerator.service.AbstractServiceImpl;
 import ma.zs.carriere.zynerator.util.ListUtil;
 import org.springframework.stereotype.Service;
-import java.util.List;
-import java.util.ArrayList;
+
+import java.util.*;
+
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -37,11 +38,18 @@ import ma.zs.carriere.zynerator.security.bean.Role;
 import ma.zs.carriere.zynerator.security.bean.RoleUser;
 import ma.zs.carriere.zynerator.security.common.AuthoritiesConstants;
 import ma.zs.carriere.zynerator.security.service.facade.ModelPermissionUserService;
-import java.util.Collection;
+
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class EmployeAdminServiceImpl implements EmployeAdminService {
 
+
+    public Map<EntiteAdmin, List<Employe>> getEmployesByEntiteAdmin() {
+        List<Employe> employes = dao.findAll();
+        return employes.stream().collect(Collectors.groupingBy(Employe::getEntiteAdmin));
+    }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
     public Employe update(Employe t) {
@@ -52,6 +60,11 @@ public class EmployeAdminServiceImpl implements EmployeAdminService {
             dao.save(t);
             return loadedItem;
         }
+    }
+
+    @Override
+    public long getTotalEmployes() {
+        return dao.count();
     }
 
     public Employe findById(Long id) {

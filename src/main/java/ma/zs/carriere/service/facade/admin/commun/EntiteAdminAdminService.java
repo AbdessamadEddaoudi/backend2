@@ -1,6 +1,8 @@
 package ma.zs.carriere.service.facade.admin.commun;
 
 import java.util.List;
+
+import ma.zs.carriere.bean.core.commun.Employe;
 import ma.zs.carriere.bean.core.commun.EntiteAdmin;
 import ma.zs.carriere.dao.criteria.core.commun.EntiteAdminCriteria;
 import ma.zs.carriere.zynerator.service.IService;
@@ -11,6 +13,9 @@ import org.springframework.web.multipart.MultipartFile;
 public interface EntiteAdminAdminService {
 
 
+    long getTotalEntites();
+
+    void addEmployeToEntiteAdmin(Long entiteAdminId, Employe employe);
 
     List<EntiteAdmin> findByChefDepartId(Long id);
     int deleteByChefDepartId(Long id);

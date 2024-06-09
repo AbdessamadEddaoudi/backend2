@@ -27,6 +27,10 @@ import ma.zs.carriere.service.facade.admin.avancement.EchelonAdminService ;
 @Service
 public class ResponsabiliteAdminServiceImpl implements ResponsabiliteAdminService {
 
+    @Override
+    public long getTotalResponsabilites() {
+        return dao.count();
+    }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
     public Responsabilite update(Responsabilite t) {

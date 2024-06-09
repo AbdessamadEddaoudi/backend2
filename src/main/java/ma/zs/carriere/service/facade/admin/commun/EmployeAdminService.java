@@ -1,7 +1,10 @@
 package ma.zs.carriere.service.facade.admin.commun;
 
 import java.util.List;
+import java.util.Map;
+
 import ma.zs.carriere.bean.core.commun.Employe;
+import ma.zs.carriere.bean.core.commun.EntiteAdmin;
 import ma.zs.carriere.dao.criteria.core.commun.EmployeCriteria;
 import ma.zs.carriere.zynerator.service.IService;
 
@@ -10,6 +13,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface EmployeAdminService {
 
+    Map<EntiteAdmin, List<Employe>> getEmployesByEntiteAdmin();
+
+    long getTotalEmployes();
 
     Employe findByUsername(String username);
     boolean changePassword(String username, String newPassword);
